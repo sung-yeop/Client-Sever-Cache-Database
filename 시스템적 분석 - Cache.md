@@ -35,6 +35,36 @@ A : Memcached와 비교해서 비교적 최근에 나온 Redis가 다루기 더 
 
 그 이유는 좀 더 많은 문법이 존재하기 때문, 또한 복잡한 코드의 부분을 캐싱하는 것이 아닐경우에는 Memcached로도 모두 커버가 가능하다.
 
+### Q : Redis에서 제공하는 다양한 데이터 포맷이 어떤 이점을 가져다 주는가?
+A : 일단 데이터 포맷부터 정리를 해야한다.
+#### 3) 데이터 포맷 종류 및 특성
+* String
+  * Text 문자열 뿐만 아니라 Integer와 같은 숫자나 JPEG같은 Binary FIle까지 저장이 가능하다
+* Set
+  * String의 집합이다.
+  * 여러개의 값을 하나의 Value에 넣을 수 있다.
+  
+  ![3-3. Set 데이터 포맷](https://user-images.githubusercontent.com/43811124/49565816-d8dd5180-f96b-11e8-9bd0-784d66276c2d.PNG)
+* Sorted Set
+  * set에 **score** 필드가 추가된 데이터형
+  * Score은 **가중치** 정도로 생각하면 된다.
+  * 데이터는 오름차순으로내부 정렬이 되며, 정렬되어있는 score 값 범위에 따른 Range query이 가능하다
+  * Top rank에 따른 query가 가능하다.
+  
+  ![3-3. Sorted set 데이터 포맷](https://user-images.githubusercontent.com/43811124/49566026-a2540680-f96c-11e8-9405-4cc173990a04.PNG)
+* Hashes
+  * Value내에 field/String Value 쌍으로 이루어진 테이블을 저장하는 데이터 구조체
+  
+  ![3-3. Hashes 데이터 포맷](https://user-images.githubusercontent.com/43811124/49566038-aaac4180-f96c-11e8-9f05-8bda79342672.PNG)
+* List
+  * Stirng들의 집합으로 데이터가 저장됨 (Set과 유사)
+  * List 앞과 뒤에서 POP/Push 연산을 이용해서 데이터 추가/제거가 용이함
+  * 지정된 INDEX값을 이용하여 지정된 위치에 데이터 추가/제거가 용이함
+  
+  ![3-3. List 데이터 포맷](https://user-images.githubusercontent.com/43811124/49566048-b26be600-f96c-11e8-82e8-abc1622dee48.PNG)
+  
+  **`다양한 데이터 포맷을 지원한다는 것은 데이터 정리에 유용하다는 것을 알 수 있다.`**
+
 ## 결론
  * 창의공 프로젝트에서 계획했던 게임은 Volume이 엄청 거대하지 않음
    * 데이터 트래픽이 크게 생기지 않을거라고 생각함
