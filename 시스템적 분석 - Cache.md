@@ -14,3 +14,10 @@
   
   * 위 그림은 Cache의 일반적인 경로이다.. 
   
+#### 1) Redis
+* 디스크에 데이터를 기록하고 있기 떄문에, Redis 메모리가 날라가도 데이터를 복구할 수 있다.
+* Key/Value Store형식이다. + 기본적인 PUT/GET Operation을 지원한다.
+  * ![3-1. Key, Value 형식](https://user-images.githubusercontent.com/43811124/49564688-c2cd9200-f967-11e8-8a66-2dd2822dd551.PNG)
+* String, List, Set, Sorted sets, Hash 등의 데이터 포맷을 지원한다.
+  * 편하게 데이터를 저장하고 사용할 수 있도록 도와준다.
+  * ![3-1. 다양한 형태의 데이터 포맷 지원](https://user-images.githubusercontent.com/43811124/49564514-2c00d580-f967-11e8-9be0-21ff4b6e2afc.PNG)
