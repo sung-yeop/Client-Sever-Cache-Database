@@ -38,7 +38,6 @@ A : 물론 한 개의 서버만 있어도 게임을 기획 할 순 있다. 하�
 - 웹 개발에 필요한 session 관리 지원
 - 추가 기능마저도 plugin 형태로 설치후 사용할 수 있음
 `Plugin기능 : restframework, Web API 서버를 개발하기위한 toolkit, 다양하고 강력한 기능제공으로
-
  python기반의 API 서버 개발로 쓰면 좋음`
 
 ### 2) Flask
